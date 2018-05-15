@@ -12,7 +12,7 @@
 
 int main(void) {
  
-    cout << "PRACTICA 5: ARBOLES BINARIOS DE BUSQUEDA" << endl << endl;
+    cout << "PRACTICA 7: ARBOLES BINARIOS DE BUSQUEDA BALANCEADOS" << endl << endl;
     cout << "[1] Modo demostración" << endl;
     cout << "[2] Modo estadístico" << endl << endl;
     cout << "Introduce una opción:";
@@ -34,7 +34,7 @@ int main(void) {
         cout << "Introduce una opción:";
         cin >> dem;
         
-        /* switch(dem){
+        switch(dem){
                 
             case 1:{
                 cout << endl << "Introduzca los 8 digitos del DNI: ";
@@ -73,11 +73,14 @@ int main(void) {
             case 0:{break;}
                 
             default:{break;}
+        }
         
         
     }while(dem != 0);
-    */
+   
         
+//MENU PARA ARBOLES DE NUMEROS ENTEROS
+/*
         switch(dem){
                 
             case 1:{
@@ -113,6 +116,7 @@ int main(void) {
         
         
     }while(dem != 0);
+*/
         
     return 0;
 }
