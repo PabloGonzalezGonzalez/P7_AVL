@@ -12,7 +12,6 @@
 #include <iostream>
 #include <cstdio>
 
-using namespace std;
 
 template<class TDato>
 class node{
@@ -52,7 +51,7 @@ public:
     
     node<TDato>& operator=(const node<TDato>& n);
     
-    ostream& write(ostream& os);
+    std::ostream& write(std::ostream& os);
 };
 
 
@@ -199,23 +198,23 @@ node<TDato>& node<TDato> :: operator= (const node<TDato>& n){
 }
 
 template<class TDato>
-ostream& node<TDato> :: write(ostream& os){
+std::ostream& node<TDato> :: write(std::ostream& os){
     
-    os << "· Padre: " << this->pad_ << endl;
-    os << "· Dato: " << this->dato_ << endl;
+    os << "· Padre: " << this->pad_ << std::endl;
+    os << "· Dato: " << this->dato_ << std::endl;
     
     if(this->izq_ != NULL){
-        os << "· Hijo izq: " << this->izq_ << endl;
+        os << "· Hijo izq: " << this->izq_ << std::endl;
     }
     else{
-        os << "· Hijo izq: NULL" << endl;
+        os << "· Hijo izq: NULL" << std::endl;
     }
     
     if(this->der_ != NULL){
-        os << "· Hijo der: " << this->der_ << endl;
+        os << "· Hijo der: " << this->der_ << std::endl;
     }
     else{
-        os << "· Hijo izq: NULL" << endl;
+        os << "· Hijo izq: NULL" << std::endl;
     }
 }
 

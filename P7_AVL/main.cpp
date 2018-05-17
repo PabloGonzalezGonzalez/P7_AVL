@@ -11,6 +11,13 @@
 #include "dni.hpp"
 #include "arbol_avl.hpp"
 
+using namespace std;
+
+void menu_case1(void);
+void menu_case2(void);
+
+AVL<int> arbol_enteros2;
+
 int main(void) {
  
     cout << "PRACTICA 7: ARBOLES BINARIOS DE BUSQUEDA BALANCEADOS" << endl << endl;
@@ -21,10 +28,9 @@ int main(void) {
     cin >> op;
     
     int dem = -1;
-    //ABB<dni_t> arbol;
-    //AVL<dni_t> arbol2;
-    //ABB<int> arbol_enteros;
-    AVL<int> arbol_enteros2;
+    /*ABB<dni_t> arbol;
+    AVL<dni_t> arbol2;
+    ABB<int> arbol_enteros;*/
     
     cout << endl << endl << "*********************" << endl;
     cout << "* MODO DEMOSTRACION *" << endl;
@@ -37,8 +43,32 @@ int main(void) {
         cout << "Introduce una opción:";
         cin >> dem;
         
-//MENU DE ABB DNI
-/*
+        
+        switch(dem){
+                
+            case 1:{
+                
+                menu_case1();
+                break;
+            }
+                
+            case 2:{
+                
+                
+                break;}
+                
+            case 0:{break;}
+                
+            default:{break;}
+        }
+        
+        
+    }while(dem != 0);
+    
+    
+    return 0;
+}
+/*MENU DE ABB DNI
         switch(dem){
                 
             case 1:{
@@ -85,7 +115,7 @@ int main(void) {
    
     
     
-//MENU PARA AVL DNI
+MENU PARA AVL DNI
         switch(dem){
                 
             case 1:{
@@ -130,7 +160,7 @@ int main(void) {
     
     }while(dem != 0);
     
-//MENU PARA ARBOLES DE NUMEROS ENTEROS
+MENU PARA ARBOLES DE NUMEROS ENTEROS
         switch(dem){
                 
             case 1:{
@@ -166,46 +196,32 @@ int main(void) {
         
         
     }while(dem != 0);
+        
 */
-        
-//MENU PARA ARBOLES DE NUMEROS ENTEROS
 
-         switch(dem){
-         
-             case 1:{
-             cout << endl <<  "Introduzca el numero a insertar: ";
-             int i;
-             cin >> i;
- 
-             cout << endl;
- 
-             arbol_enteros2.insertar(i);
- 
-             arbol_enteros2.write(cout);
- 
-             break;}
- 
-             case 2:{
-             cout << endl << "Introduzca el numero a eliminar: ";
-             int i;
-             cin >> i;
- 
-             cout << endl;
- 
-             arbol_enteros2.eliminar(i);
- 
-             arbol_enteros2.write(cout);
- 
-             break;}
- 
-             case 0:{break;}
- 
-             default:{break;}
-        }
- 
-         
-    }while(dem != 0);
 
-        
-    return 0;
+void menu_case1(void){
+    
+    cout << endl <<  "Introduzca el numero a insertar: ";
+    int i;
+    cin >> i;
+    
+    cout << endl;
+    
+    arbol_enteros2.insertar(i);
+    
+    arbol_enteros2.write(cout);
+}
+
+void menu_case2(void){
+    
+    cout << endl << "Introduzca el numero a eliminar: ";
+    int i;
+    cin >> i;
+    
+    cout << endl;
+    
+    arbol_enteros2.eliminar(i);
+    
+    arbol_enteros2.write(cout);
 }

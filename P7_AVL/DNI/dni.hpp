@@ -14,8 +14,6 @@
 #include <iostream>
 #include <ctime>
 
-using namespace std;
-
 class dni_t{
     
 private:
@@ -36,8 +34,6 @@ public:
     
     dni_t& operator=(const dni_t& dni);
     dni_t& operator=(const long int& dni);
-    
-    operator long int(void) const;
     
     void write(void) const;
 };
@@ -143,23 +139,15 @@ dni_t& dni_t :: operator= (const dni_t& dni){
 }
 
 
-
-dni_t :: operator long int(void) const{
-    
-    return this->key_;
-}
-
-
-
 /* */
 
 
 
 void dni_t :: write(void) const{
     
-    cout << "Número: " << num_ << endl;
-    cout << "Letra: " << let_ << endl;
-    cout << "Clave: " << key_ << endl;
+    std::cout << "Número: " << num_ << std::endl;
+    std::cout << "Letra: " << let_ << std::endl;
+    std::cout << "Clave: " << key_ << std::endl;
 }
 
 

@@ -12,7 +12,7 @@
 #include "arbol.hpp"
 
 template<class TDato>
-class AVL : public ABB<TDato> {
+class AVL : public ABB<TDato>{
     
 public:
     
@@ -20,7 +20,6 @@ public:
     ~AVL();
     
     void podar(node<TDato>*& nodo);
-    node<TDato>* get_raiz(void);
     
     void rotacion_II(node<TDato>*& nodo);
     void rotacion_DD(node<TDato>*& nodo);
@@ -46,14 +45,15 @@ public:
 template<class TDato>
 AVL<TDato> :: AVL(){
     
-    this->raiz_ = NULL;
+    ABB<TDato>::set_raiz(NULL);
 }
 
 
 template<class TDato>
 AVL<TDato> :: ~AVL(){
     
-    podar(this->raiz_);
+    node<TDato>* aux = ABB<TDato>::get_raiz();
+    podar(aux);
 }
 
 
@@ -72,12 +72,6 @@ void AVL<TDato> :: podar(node<TDato>*& nodo){
     }
 }
 
-
-template<class TDato>
-node<TDato>* AVL<TDato> :: get_raiz(void){
-    
-    return (this->raiz_);
-}
 
 
 /* */
@@ -214,7 +208,8 @@ void AVL<TDato> :: insertar(const TDato& clave){
     aux->set_bal(0);
     
     bool grow = false;
-    insertar_bal(this->raiz_, aux, grow);
+    node<TDato>* aux2 = ABB<TDato>::get_raiz();
+    insertar_bal(aux2, aux, grow);
 }
 
 
@@ -231,7 +226,7 @@ void AVL<TDato> :: insertar_bal(node<TDato>*& nodo, node<TDato>*& nuevo, bool& g
         
         if(nuevo->get_dato() == nodo->get_dato()){
             
-            cout << endl << "YA SE HA INSERTADO ESTA CLAVE" << endl;
+            std::cout << std::endl << "YA SE HA INSERTADO ESTA CLAVE" << std::endl;
         }
         
         else if(nuevo->get_dato() < nodo->get_dato()){
@@ -260,42 +255,32 @@ void AVL<TDato> :: insertar_bal(node<TDato>*& nodo, node<TDato>*& nuevo, bool& g
 template<class TDato>
 void AVL<TDato> :: insertar_re_balan_izq(node<TDato>*& nodo, bool& grow){
     
-    switch(nodo->get_bal()) {
+    if(nodo->get_bal() == -1){
+        
+        nodo->set_bal(0);
+        grow = false;
+    }
+    
+    else if(nodo->get_bal() == 0){
+    
+        nodo->set_bal(1);
+    }
+    
+    else if(nodo->get_bal() == 1){
+        
+        node<TDato>* aux = nodo->get_izq();
+        
+        if(aux->get_bal() == 1){
             
-        case -1:{
+            rotacion_II(nodo);
+        }
+        
+        else{
             
-            nodo->set_bal(0);
-            grow = false;
-            
-            break;}
-            
-        case 0:{
-            
-            nodo->set_bal(1);
-            
-            break;}
-            
-        case 1:{
-            
-            node<TDato>* aux = nodo->get_izq();
-            
-            if(aux->get_bal() == 1){
-            
-                rotacion_II(nodo);
-            }
-            
-            else{
-                
-                rotacion_ID(nodo);
-            }
-            
-            grow = false;
-            
-            break;}
-            
-        default:{
-            
-            break;}
+            rotacion_ID(nodo);
+        }
+        
+        grow = false;
     }
 }
 
@@ -304,42 +289,32 @@ void AVL<TDato> :: insertar_re_balan_izq(node<TDato>*& nodo, bool& grow){
 template<class TDato>
 void AVL<TDato> :: insertar_re_balan_der(node<TDato>*& nodo, bool& grow){
     
-    switch(nodo->get_bal()) {
+    if(nodo->get_bal() == -1){
+        
+        node<TDato>* aux = nodo->get_der();
+        
+        if(aux->get_bal()== -1){
             
-        case -1:{
+            rotacion_DD(nodo);
+        }
+        
+        else{
             
-            node<TDato>* aux = nodo->get_der();
-            
-            if(aux->get_bal()== -1){
-                
-                rotacion_DD(nodo);
-            }
-            
-            else{
-                
-                rotacion_DI(nodo);
-            }
-            
-            grow = false;
-            
-            break;}
-            
-        case 0:{
-            
-            nodo->set_bal(-1);
-            
-            break;}
-            
-        case 1:{
-            
-            nodo->set_bal(0);
-            grow = false;
-            
-            break;}
-            
-        default:{
-            
-            break;}
+            rotacion_DI(nodo);
+        }
+        
+        grow = false;
+    }
+    
+    else if(nodo->get_bal() == 0){
+        
+        nodo->set_bal(-1);
+    }
+    
+    else if(nodo->get_bal() == 1){
+        
+        nodo->set_bal(0);
+        grow = false;
     }
 }
 
@@ -351,7 +326,7 @@ template<class TDato>
 void AVL<TDato> :: eliminar(const TDato& clave){
     
     bool degrow = false;
-    eliminar_bal(this->raiz_, clave, degrow);
+    eliminar_bal(ABB<TDato>::get_raiz(), clave, degrow);
 }
 
 
@@ -360,7 +335,7 @@ void AVL<TDato> :: eliminar_bal(node<TDato>*& nodo, const TDato& clave, bool& de
     
     if(nodo == NULL) {
         
-        cout << endl << "El nodo a eliminar no esta en el arbol!" << endl;
+        std::cout << std::endl << "El nodo a eliminar no esta en el arbol!" << std::endl;
         return;
     }
     

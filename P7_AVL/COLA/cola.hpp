@@ -13,14 +13,12 @@
 #include <cstdlib>
 #include <queue>
 
-using namespace std;
-
 template<class TDato>
 class cola{
     
 private:
-    queue<int> niveles_;
-    queue<TDato> cola_;
+    std::queue<int> niveles_;
+    std::queue<TDato> cola_;
     
 public:
     cola();

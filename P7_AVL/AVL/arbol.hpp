@@ -12,12 +12,10 @@
 #include "node.hpp"
 #include "cola.hpp"
 
-using namespace std;
-
 template<class TDato>
 class ABB{
     
-protected:
+private:
     node<TDato>* raiz_;
     
 public:
@@ -29,9 +27,12 @@ public:
     virtual void insertar(const TDato& clave);
     virtual void eliminar(const TDato& clave);
     
-    ostream& write(ostream& os);
+    std::ostream& write(std::ostream& os);
     
 protected:
+    void set_raiz(node<TDato>* nodo);
+    node<TDato>*& get_raiz(void);
+    
     void podar(node<TDato>*& raiz);
     bool empty(void) const;
     
@@ -44,7 +45,7 @@ protected:
     bool menor (const TDato& a, const TDato& b) const;
     bool mayor (const TDato& a, const TDato& b) const;
 
-    ostream& write(ostream& os, node<TDato>*& nodo);
+    std::ostream& write(std::ostream& os, node<TDato>*& nodo);
 };
 
 
@@ -81,6 +82,20 @@ void ABB<TDato> :: podar(node<TDato>*& raiz){
 
 
 template<class TDato>
+void ABB<TDato> :: set_raiz(node<TDato>* nodo){
+    
+    this->raiz_ = nodo;
+}
+
+
+template<class TDato>
+node<TDato>*& ABB<TDato> :: get_raiz(void){
+    
+    return (this->raiz_);
+}
+
+
+template<class TDato>
 bool ABB<TDato> :: empty(void) const{
     
     if(this->raiz_ == NULL){
@@ -102,12 +117,12 @@ void ABB<TDato> :: buscar_nodo(TDato& clave){
     node<TDato>*& aux = buscar_rama(this->raiz_, clave);
     
     if(aux == NULL){
-        cout << endl << "NO EXISTE LA CLAVE " << endl << endl;
+        std::cout << std::endl << "NO EXISTE LA CLAVE " << std::endl << std::endl;
     }
     
     else{
         
-        aux->write(cout);
+        aux->write(std::cout);
     }
 }
 
@@ -220,7 +235,7 @@ void ABB<TDato> :: eliminar_rama(node<TDato>*& nodo, const TDato& clave){
     
     if(nodo == NULL){
         
-        cout << endl << "LA CLAVE NO EXISTE" << endl;
+        std::cout << std::endl << "LA CLAVE NO EXISTE" << std::endl;
     }
     
     if(clave < nodo->get_dato()){
@@ -329,7 +344,7 @@ bool ABB<TDato> :: menor(const TDato& a, const TDato& b) const{
 
 
 template<class TDato>
-ostream& ABB<TDato> :: write(ostream& os){
+std::ostream& ABB<TDato> :: write(std::ostream& os){
     
     write(os, this->raiz_);
     
@@ -338,7 +353,7 @@ ostream& ABB<TDato> :: write(ostream& os){
 
 
 template<class TDato>
-ostream& ABB<TDato> :: write(ostream& os, node<TDato>*& nodo){
+std::ostream& ABB<TDato> :: write(std::ostream& os, node<TDato>*& nodo){
     
     cola<node<TDato>* > impr;
     node<TDato>* aux;
@@ -357,7 +372,7 @@ ostream& ABB<TDato> :: write(ostream& os, node<TDato>*& nodo){
         if(nivel > act){
             
             act = nivel;
-            os << endl << nivel << " nivel: ";
+            os << std::endl << nivel << " nivel: ";
         }
         
         if(aux != NULL){
