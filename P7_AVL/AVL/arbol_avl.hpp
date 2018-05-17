@@ -292,6 +292,10 @@ void AVL<TDato> :: insertar_re_balan_izq(node<TDato>*& nodo, bool& grow){
             grow = false;
             
             break;}
+            
+        default:{
+            
+            break;}
     }
 }
 
@@ -330,6 +334,10 @@ void AVL<TDato> :: insertar_re_balan_der(node<TDato>*& nodo, bool& grow){
             
             nodo->set_bal(0);
             grow = false;
+            
+            break;}
+            
+        default:{
             
             break;}
     }
@@ -463,6 +471,9 @@ void AVL<TDato> :: eliminar_re_bal_I(node<TDato>*& nodo, bool& degrow){
             
             nodo->set_bal(0);
             break;}
+            
+        default:{
+            break;}
     }
 }
 
@@ -502,6 +513,9 @@ void AVL<TDato> :: eliminar_re_bal_D(node<TDato>*& nodo, bool& degrow){
         case -1:{
             
             nodo->set_bal(0);
+            break;}
+            
+        default:{
             break;}
     }
 }

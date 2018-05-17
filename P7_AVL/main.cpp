@@ -21,9 +21,9 @@ int main(void) {
     cin >> op;
     
     int dem = -1;
-    ABB<dni_t> arbol;
-    AVL<dni_t> arbol2;
-    ABB<int> arbol_enteros;
+    //ABB<dni_t> arbol;
+    //AVL<dni_t> arbol2;
+    //ABB<int> arbol_enteros;
     AVL<int> arbol_enteros2;
     
     cout << endl << endl << "*********************" << endl;
@@ -82,12 +82,10 @@ int main(void) {
         
         
     }while(dem != 0);
-*/
    
     
     
 //MENU PARA AVL DNI
-/*
         switch(dem){
                 
             case 1:{
@@ -131,10 +129,8 @@ int main(void) {
     
     
     }while(dem != 0);
- */
     
 //MENU PARA ARBOLES DE NUMEROS ENTEROS
-/*
         switch(dem){
                 
             case 1:{

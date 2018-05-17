@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		99E2DC9120AB640400471CBA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99E2DC9020AB640400471CBA /* main.cpp */; };
-		99E2DC9F20AB649000471CBA /* dni.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99E2DC9A20AB649000471CBA /* dni.cpp */; };
+		99E905B920ADB7BD00286547 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 99E905B820ADB7BD00286547 /* Makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,10 +28,10 @@
 		99E2DC8D20AB640300471CBA /* P7_AVL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = P7_AVL; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E2DC9020AB640400471CBA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		99E2DC9820AB649000471CBA /* cola.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cola.hpp; sourceTree = "<group>"; };
-		99E2DC9A20AB649000471CBA /* dni.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dni.cpp; sourceTree = "<group>"; };
 		99E2DC9B20AB649000471CBA /* dni.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dni.hpp; sourceTree = "<group>"; };
 		99E2DC9D20AB649000471CBA /* arbol.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = arbol.hpp; sourceTree = "<group>"; };
 		99E2DC9E20AB649000471CBA /* node.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = node.hpp; sourceTree = "<group>"; };
+		99E905B820ADB7BD00286547 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = P7_AVL/Makefile; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +64,7 @@
 		99E2DC8F20AB640300471CBA /* P7_AVL */ = {
 			isa = PBXGroup;
 			children = (
+				99E905B820ADB7BD00286547 /* Makefile */,
 				99E2DC9020AB640400471CBA /* main.cpp */,
 				99E2DC9C20AB649000471CBA /* AVL */,
 				99E2DC9720AB649000471CBA /* COLA */,
@@ -83,7 +84,6 @@
 		99E2DC9920AB649000471CBA /* DNI */ = {
 			isa = PBXGroup;
 			children = (
-				99E2DC9A20AB649000471CBA /* dni.cpp */,
 				99E2DC9B20AB649000471CBA /* dni.hpp */,
 			);
 			path = DNI;
@@ -155,8 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99E905B920ADB7BD00286547 /* Makefile in Sources */,
 				99E2DC9120AB640400471CBA /* main.cpp in Sources */,
-				99E2DC9F20AB649000471CBA /* dni.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

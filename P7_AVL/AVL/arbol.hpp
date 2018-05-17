@@ -343,7 +343,8 @@ ostream& ABB<TDato> :: write(ostream& os, node<TDato>*& nodo){
     cola<node<TDato>* > impr;
     node<TDato>* aux;
     
-    int nivel = 0, act = 0;
+    int nivel = 0;
+    int act = 0;
     
     impr.push_dato(nodo, nivel);
     
