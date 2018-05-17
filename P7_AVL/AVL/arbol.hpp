@@ -15,10 +15,9 @@
 using namespace std;
 
 template<class TDato>
-
 class ABB{
     
-private:
+protected:
     node<TDato>* raiz_;
     
 public:
@@ -27,14 +26,14 @@ public:
     
     node<TDato>*& buscar(const TDato& clave);
     void buscar_nodo(TDato& clave);
-    void insertar(const TDato& clave);
-    void eliminar(const TDato& clave);
+    virtual void insertar(const TDato& clave);
+    virtual void eliminar(const TDato& clave);
     
     ostream& write(ostream& os);
     
-private:
+protected:
     void podar(node<TDato>*& raiz);
-    bool empty() const;
+    bool empty(void) const;
     
     node<TDato>*& buscar_rama(node<TDato>*& nodo, const TDato& clave);
     void insertar_rama(node<TDato>*& nodo, const TDato& clave, node<TDato>*& prev);

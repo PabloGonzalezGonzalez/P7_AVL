@@ -9,6 +9,7 @@
 #include <iostream>
 #include "arbol.hpp"
 #include "dni.hpp"
+#include "arbol_avl.hpp"
 
 int main(void) {
  
@@ -21,7 +22,9 @@ int main(void) {
     
     int dem = -1;
     ABB<dni_t> arbol;
+    AVL<dni_t> arbol2;
     ABB<int> arbol_enteros;
+    AVL<int> arbol_enteros2;
     
     cout << endl << endl << "*********************" << endl;
     cout << "* MODO DEMOSTRACION *" << endl;
@@ -34,6 +37,8 @@ int main(void) {
         cout << "Introduce una opción:";
         cin >> dem;
         
+//MENU DE ABB DNI
+/*
         switch(dem){
                 
             case 1:{
@@ -77,8 +82,57 @@ int main(void) {
         
         
     }while(dem != 0);
+*/
    
-        
+    
+    
+//MENU PARA AVL DNI
+/*
+        switch(dem){
+                
+            case 1:{
+                cout << endl << "Introduzca los 8 digitos del DNI: ";
+                long int num;
+                cin >> num;
+                
+                cout << "Introduzca la letra del DNI: ";
+                char let;
+                cin >> let;
+                
+                dni_t dni(num, let);
+                
+                arbol2.insertar(dni);
+                
+                arbol2.write(cout);
+                
+                break;}
+                
+            case 2:{
+                cout << endl << "Introduce los 8 digitos del DNI: ";
+                long int num;
+                cin >> num;
+                
+                cout << "Introudzca la letra del DNI: ";
+                char let;
+                cin >> let;
+                
+                dni_t dni(num,let);
+                
+                arbol2.eliminar(dni);
+                
+                arbol2.write(cout);
+                
+                break;}
+                
+            case 0:{break;}
+                
+            default:{break;}
+        }
+    
+    
+    }while(dem != 0);
+ */
+    
 //MENU PARA ARBOLES DE NUMEROS ENTEROS
 /*
         switch(dem){
@@ -117,6 +171,45 @@ int main(void) {
         
     }while(dem != 0);
 */
+        
+//MENU PARA ARBOLES DE NUMEROS ENTEROS
+
+         switch(dem){
+         
+             case 1:{
+             cout << endl <<  "Introduzca el numero a insertar: ";
+             int i;
+             cin >> i;
+ 
+             cout << endl;
+ 
+             arbol_enteros2.insertar(i);
+ 
+             arbol_enteros2.write(cout);
+ 
+             break;}
+ 
+             case 2:{
+             cout << endl << "Introduzca el numero a eliminar: ";
+             int i;
+             cin >> i;
+ 
+             cout << endl;
+ 
+             arbol_enteros2.eliminar(i);
+ 
+             arbol_enteros2.write(cout);
+ 
+             break;}
+ 
+             case 0:{break;}
+ 
+             default:{break;}
+        }
+ 
+         
+    }while(dem != 0);
+
         
     return 0;
 }

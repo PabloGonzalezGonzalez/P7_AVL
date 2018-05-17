@@ -23,6 +23,7 @@ private:
     node<TDato>* pad_;
     TDato dato_;
     
+    int balan_;
     int cont_;
     
 public:
@@ -34,6 +35,7 @@ public:
     void set_der(node<TDato>* a);
     void set_pad(node<TDato>* a);
     void set_dato(const TDato& a);
+    void set_bal(int a);
     
     node<TDato>*& get_izq(void);
     node<TDato>*& get_der(void);
@@ -42,6 +44,7 @@ public:
     node<TDato>* get_der(void) const;
     node<TDato>* get_pad(void) const;
     TDato get_dato(void) const;
+    int get_bal(void);
     
     void aumentar_cont(void);
     void disminuir_cont(void);
@@ -116,6 +119,13 @@ void node<TDato> :: set_dato(const TDato& a){
 }
 
 
+template<class TDato>
+void node<TDato> :: set_bal(int a){
+    
+    this->balan_ = a;
+}
+
+
 /* */
 
 
@@ -163,6 +173,13 @@ template<class TDato>
 TDato node<TDato> :: get_dato(void) const{
     
     return (this->dato_);
+}
+
+
+template<class TDato>
+int node<TDato> :: get_bal(void){
+    
+    return (this->balan_);
 }
 
 
